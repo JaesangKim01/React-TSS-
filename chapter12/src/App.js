@@ -13,6 +13,12 @@ const App = () => {
   const onChange = useCallback(
     e=> {
       const {name,value} = e.target
+      // if(name === "username" ){
+      //   console.log(1)
+      // }
+      // else if(name ==="name"){
+      //   console.log(2)
+      // }
       setForm(
         produce(form, draft => {
           draft[name] = value 
@@ -21,6 +27,10 @@ const App = () => {
     },
     [form]
   )
+    //같은 onchange 함수인데 왜 이름만 변경되고 왜 아이디는 변경이 안되는 것인가?
+    //name을  username이 아니라 usename으로 착각
+
+
 
   const onSubmit = useCallback(
     e => {
@@ -61,17 +71,17 @@ const App = () => {
     <div>
       <form onSubmit={onSubmit}>
         <input
-          name="usename"
+          name="username"
           placeholder="아이디"
           value={form.username}
           onChange={onChange}
         />
         <input
-        name="name"
-        placeholder="이름"
-        value={form.name}
-        onChange={onChange}
-      />
+          name="name"
+          placeholder="이름"
+          value={form.name}
+          onChange={onChange}
+        />
       <button type="submit">등록</button>
       </form>
       <div>
